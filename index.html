@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operation MarketMap - ProjectK Internship</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
       font-family: 'Roboto', sans-serif;
@@ -65,6 +66,12 @@
       border-radius: 10px;
       margin-top: 1rem;
     }
+    .faq {
+      margin-top: 2rem;
+    }
+    .faq h4 {
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -98,8 +105,8 @@
     <h3>Analytics Overview</h3>
     <div class="grid">
       <div class="card">
-        <h4>Companies by Industry</h4>
-        <img class="random-photo" src="https://source.unsplash.com/random/300x200?industry" alt="industry" />
+        <h4>Sample Chart: Industry Distribution</h4>
+        <canvas id="industryChart"></canvas>
       </div>
       <div class="card">
         <h4>Leads by Region</h4>
@@ -111,6 +118,18 @@
       </div>
     </div>
 
+    <div class="faq">
+      <h3>Frequently Asked Questions</h3>
+      <h4>Who can apply for the internship?</h4>
+      <p>Anyone with interest in market research, data entry, and industry analysis can apply.</p>
+
+      <h4>What is the duration of the internship?</h4>
+      <p>10 days, with a daily target of 100 leads.</p>
+
+      <h4>Is there any reward for exceeding the target?</h4>
+      <p>Yes, interns who exceed targets are eligible for bonuses and additional recognition.</p>
+    </div>
+
     <h3>Contact Details</h3>
     <p>Email (HR): <a href="mailto:mdfocussingh@gmail.com">mdfocussingh@gmail.com</a></p>
     <p>Phone: +91-9876543210</p>
@@ -119,5 +138,22 @@
   <footer>
     <p>&copy; 2025 Operation MarketMap. All rights reserved.</p>
   </footer>
+
+  <script>
+    const ctx = document.getElementById('industryChart').getContext('2d');
+    const industryChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['FMCG', 'Retail', 'Education', 'Healthcare', 'Manufacturing'],
+        datasets: [{
+          label: 'Company Distribution',
+          data: [25, 20, 15, 25, 15],
+          backgroundColor: [
+            '#60a5fa', '#34d399', '#fbbf24', '#f87171', '#a78bfa'
+          ]
+        }]
+      }
+    });
+  </script>
 </body>
 </html>
